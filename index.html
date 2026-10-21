@@ -1,19 +1,19 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ja">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Minecraft Interval Calculator</title>
+    <title>Minecraft 等間隔計算機</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <div class="container">
-        <h1>Minecraft Interval Calculator</h1>
-        <p>Calculate perfectly spaced intervals for torches, assuming one is placed at both ends.</p>
+        <h1>Minecraft 等間隔計算機</h1>
+        <p>両端に松明を置く前提で、きれいに等間隔になるパターンを計算します。</p>
         
         <div class="input-area">
-            <label for="block-count">Total Blocks:</label>
-            <input type="number" id="block-count" min="2" placeholder="e.g., 13">
+            <label for="block-count">置きたい場所の総マス数：</label>
+            <input type="number" id="block-count" min="2" placeholder="例: 13">
             
             <!-- 数字入力ボタン（テンキー） -->
             <div class="keypad">
@@ -31,11 +31,11 @@
                 <button type="button" id="del-btn">DEL</button>
             </div>
 
-            <button id="calc-btn">Calculate</button>
+            <button id="calc-btn">計算する</button>
         </div>
 
         <div id="result-area" class="result-area hidden">
-            <h2>Placement Patterns</h2>
+            <h2>配置パターン</h2>
             <ul id="result-list"></ul>
         </div>
     </div>

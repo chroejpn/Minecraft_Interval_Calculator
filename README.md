@@ -1,0 +1,2 @@
+# Minecraft_Interval_Calculator
+Minecraft 等間隔計算機

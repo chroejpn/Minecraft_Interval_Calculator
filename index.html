@@ -1,31 +1,45 @@
 <!DOCTYPE html>
-<html lang="ja">
-
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Minecraft 等間隔計算機</title>
+    <title>Minecraft Interval Calculator</title>
     <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
     <div class="container">
-        <h1>Minecraft 等間隔計算機</h1>
-        <p>きれいに等間隔になるパターンを計算します。</p>
-
+        <h1>Minecraft Interval Calculator</h1>
+        <p>Calculate perfectly spaced intervals for torches, assuming one is placed at both ends.</p>
+        
         <div class="input-area">
-            <label for="block-count">置きたい場所の総マス数：</label>
-            <input type="number" id="block-count" min="2" placeholder="例: 13">
-            <button id="calc-btn">計算する</button>
+            <label for="block-count">Total Blocks:</label>
+            <input type="number" id="block-count" min="2" placeholder="e.g., 13">
+            
+            <!-- 数字入力ボタン（テンキー） -->
+            <div class="keypad">
+                <button type="button" class="num-btn" data-val="1">1</button>
+                <button type="button" class="num-btn" data-val="2">2</button>
+                <button type="button" class="num-btn" data-val="3">3</button>
+                <button type="button" class="num-btn" data-val="4">4</button>
+                <button type="button" class="num-btn" data-val="5">5</button>
+                <button type="button" class="num-btn" data-val="6">6</button>
+                <button type="button" class="num-btn" data-val="7">7</button>
+                <button type="button" class="num-btn" data-val="8">8</button>
+                <button type="button" class="num-btn" data-val="9">9</button>
+                <button type="button" id="clear-btn">C</button>
+                <button type="button" class="num-btn" data-val="0">0</button>
+                <button type="button" id="del-btn">DEL</button>
+            </div>
+
+            <button id="calc-btn">Calculate</button>
         </div>
 
         <div id="result-area" class="result-area hidden">
-            <h2>配置パターン</h2>
+            <h2>Placement Patterns</h2>
             <ul id="result-list"></ul>
         </div>
     </div>
 
     <script src="script.js"></script>
 </body>
-
 </html>

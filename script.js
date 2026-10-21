@@ -4,52 +4,70 @@ document.addEventListener('DOMContentLoaded', () => {
     const resultArea = document.getElementById('result-area');
     const resultList = document.getElementById('result-list');
 
-    calcBtn.addEventListener('click', () => {
-        // 入力値の取得
-        const n = parseInt(blockCountInput.value, 10);
+    // テンキー用の要素を取得
+    const numBtns = document.querySelectorAll('.num-btn');
+    const clearBtn = document.getElementById('clear-btn');
+    const delBtn = document.getElementById('del-btn');
 
-        // リセット
+    // 数字ボタンを押した時の処理
+    numBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+            // data-val属性から数字を取得して入力欄に追加
+            blockCountInput.value += btn.getAttribute('data-val');
+        });
+    });
+
+    // C(クリア)ボタンを押した時の処理
+    clearBtn.addEventListener('click', () => {
+        blockCountInput.value = '';
+    });
+
+    // DEL(デリート)ボタンを押した時の処理
+    delBtn.addEventListener('click', () => {
+        // 現在の文字列の最後尾を1文字削る
+        blockCountInput.value = blockCountInput.value.slice(0, -1);
+    });
+
+    // 計算ボタンの処理
+    calcBtn.addEventListener('click', () => {
+        const n = parseInt(blockCountInput.value, 10);
+        
         resultList.innerHTML = '';
         resultArea.classList.add('hidden');
 
-        // バリデーション（2マス以上必要）
         if (isNaN(n) || n < 2) {
-            alert('2以上の整数を入力してください。');
+            alert('Please enter a number of 2 or more.');
             return;
         }
 
-        // 両端に置くため、間の距離は (総マス数 - 1) となる
         const distance = n - 1;
         const patterns = [];
 
-        // 距離の約数をすべて求める（等間隔になる数値）
         for (let i = 1; i <= distance; i++) {
             if (distance % i === 0) {
                 patterns.push(i);
             }
         }
 
-        // 結果をHTMLに生成
         patterns.forEach(interval => {
             const torchCount = (distance / interval) + 1;
-            const emptySpaces = interval - 1; // 松明と松明の間の空きブロック数
-
+            const emptySpaces = interval - 1; 
+            
             const li = document.createElement('li');
-
+            
             const title = document.createElement('div');
             title.className = 'interval-title';
-            title.textContent = `${interval}マス間隔 (必要な松明: ${torchCount}本)`;
-
+            title.textContent = `Interval: ${interval} blocks (Torches needed: ${torchCount})`;
+            
             const detail = document.createElement('div');
             detail.className = 'detail';
-            detail.textContent = `松明の間の空きスペース: ${emptySpaces}マス`;
-
+            detail.textContent = `Empty space between torches: ${emptySpaces} blocks`;
+            
             li.appendChild(title);
             li.appendChild(detail);
             resultList.appendChild(li);
         });
 
-        // 結果エリアを表示
         resultArea.classList.remove('hidden');
     });
 });

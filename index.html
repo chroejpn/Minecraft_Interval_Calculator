@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Minecraft 等間隔計算機</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="container">
+        <h1>Minecraft 等間隔計算機</h1>
+        <p>きれいに等間隔になるパターンを計算します。</p>
+
+        <div class="input-area">
+            <label for="block-count">置きたい場所の総マス数：</label>
+            <input type="number" id="block-count" min="2" placeholder="例: 13">
+            <button id="calc-btn">計算する</button>
+        </div>
+
+        <div id="result-area" class="result-area hidden">
+            <h2>配置パターン</h2>
+            <ul id="result-list"></ul>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>

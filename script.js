@@ -12,7 +12,6 @@ document.addEventListener('DOMContentLoaded', () => {
     // 数字ボタンを押した時の処理
     numBtns.forEach(btn => {
         btn.addEventListener('click', () => {
-            // data-val属性から数字を取得して入力欄に追加
             blockCountInput.value += btn.getAttribute('data-val');
         });
     });
@@ -24,7 +23,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // DEL(デリート)ボタンを押した時の処理
     delBtn.addEventListener('click', () => {
-        // 現在の文字列の最後尾を1文字削る
         blockCountInput.value = blockCountInput.value.slice(0, -1);
     });
 
@@ -36,7 +34,7 @@ document.addEventListener('DOMContentLoaded', () => {
         resultArea.classList.add('hidden');
 
         if (isNaN(n) || n < 2) {
-            alert('Please enter a number of 2 or more.');
+            alert('2以上の整数を入力してください。');
             return;
         }
 
@@ -57,11 +55,11 @@ document.addEventListener('DOMContentLoaded', () => {
             
             const title = document.createElement('div');
             title.className = 'interval-title';
-            title.textContent = `Interval: ${interval} blocks (Torches needed: ${torchCount})`;
+            title.textContent = `${interval}マス間隔 (必要な松明: ${torchCount}本)`;
             
             const detail = document.createElement('div');
             detail.className = 'detail';
-            detail.textContent = `Empty space between torches: ${emptySpaces} blocks`;
+            detail.textContent = `松明の間の空きスペース: ${emptySpaces}マス`;
             
             li.appendChild(title);
             li.appendChild(detail);
